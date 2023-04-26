@@ -40,11 +40,34 @@
                 <p>Price: ${{ $product->price }}</p>
                     
                  <button onclick="location.href='{{ url('/billing') }}'" type="submit" class="btn-buy">Buy Now</button>
-                 <button onclick="location.href='{{ url('/cart') }}'" type="submit" class="btn-add">Add to Cart</button>
+                 <button onclick="postJSON({{ $product->id }})" type="submit" class="btn-add">Add to Cart</button>
             </div>
         </div>
     </div>
     
 </body>
   
+<script>
+    async function postJSON(pid) {
+     const data = { 
+        product_id: pid
+      }
+      try {
+    const response = await fetch("{{ url('api/addToCart') }}", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+
+  }
+}
+
+
+
+</script>

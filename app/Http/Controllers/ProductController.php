@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
+
 
 class ProductController extends Controller
 {
@@ -22,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -30,7 +32,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cart::create([
+            'product_id'=> $request->input('product_id'), 
+            'user_id' => 1
+
+        ]);
+        
+        return 'success';
     }
 
     /**
