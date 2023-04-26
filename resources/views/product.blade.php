@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset('images/headphones.jpg') }}" alt="{{ $product->name }}" >
+                <img src="{{ asset($image_path) }}" alt="{{ $product->name }}" >
             </div>
             <div class="col-md-6">
                 

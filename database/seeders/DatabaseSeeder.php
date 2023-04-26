@@ -14,18 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         Product::insert([
             'name'        => 'Headphones',
             'description' => 'One for the Gamers',
             'price'       => '799',
-            'image_path'  => 'test',
+            'image_path'  => 'empty',
         ]);
     }
 }

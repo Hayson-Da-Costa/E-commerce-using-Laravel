@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::first();
-        return view('product', compact('product'));
+        $image_path = 'images/headphones.jpg';
+        return view('product', compact('product','image_path'));
     }
 
     /**
