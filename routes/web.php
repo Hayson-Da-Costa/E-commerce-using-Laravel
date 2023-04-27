@@ -25,10 +25,7 @@ Route::post('/welcome', [LoginController::class, 'login'] )->name('login.login')
 Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/billing', function(){ return view('billing.billing');});
-// Route::get('/cart', function(){ return view('cart.cart');});
-
-
-
+Route::get('/cart', function(){ return view('cart.cart');});
 
 
 Route::get('/dashboard', function(){

@@ -25,6 +25,9 @@
             color: white;
             border-radius: 4px;
         }
+        .cart {
+          width: 155px;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +43,11 @@
                 <p>Price: ${{ $product->price }}</p>
                     
                  <button onclick="location.href='{{ url('/billing') }}'" type="submit" class="btn-buy">Buy Now</button>
-                 <button onclick="postJSON({{ $product->id }})" type="submit" class="btn-add">Add to Cart</button>
+                 <button  id="myButton" onclick="postJSON({{ $product->id }})" type="submit" class="btn-add">Add to Cart</button>
+                 <br> <br>
+                 <div>
+                    <button onclick="location.href='{{ url('/cart') }}'" type="submit" class="btn-buy cart">Go to Cart</button>
+                 </div>                 
             </div>
         </div>
     </div>
@@ -68,6 +75,19 @@
   }
 }
 
+/* Notification for added to cart */
 
+document.getElementById("myButton").addEventListener("click", function() {
+  // check if the browser supports notifications
+  if ("Notification" in window) {
+    // request permission to show notifications
+    Notification.requestPermission().then(function(result) {
+      // show the notification if permission is granted
+      if (result === "granted") {
+        var notification = new Notification("Added to Cart!");
+      }
+    });
+  }
+});
 
 </script>
